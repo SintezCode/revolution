@@ -38,7 +38,7 @@ MODx.grid.User = function(config) {
             action: 'security/user/getList'
             ,usergroup: MODx.request['usergroup'] ? MODx.request['usergroup'] : ''
         }
-        ,fields: ['id','username','fullname','email','gender','blocked','role','active','cls']
+        ,fields: ['id','username','fullname','email','phone','gender','blocked','role','active','cls']
         ,paging: true
         ,autosave: true
         ,save_action: 'security/user/updatefromgrid'
@@ -78,6 +78,12 @@ MODx.grid.User = function(config) {
         },{
             header: _('email')
             ,dataIndex: 'email'
+            ,width: 180
+            ,sortable: true
+            ,editor: { xtype: 'textfield' }
+        },{
+            header: _('user_phone')
+            ,dataIndex: 'phone'
             ,width: 180
             ,sortable: true
             ,editor: { xtype: 'textfield' }

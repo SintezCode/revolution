@@ -39,6 +39,7 @@ class modUserGetListProcessor extends modObjectGetListProcessor {
                 'modUser.username:LIKE' => '%'.$query.'%',
                 'OR:Profile.fullname:LIKE' => '%'.$query.'%',
                 'OR:Profile.email:LIKE' => '%'.$query.'%',
+                'OR:Profile.phone:LIKE' => '%'.$query.'%',
             ));
         }
 
@@ -62,7 +63,7 @@ class modUserGetListProcessor extends modObjectGetListProcessor {
 
     public function prepareQueryAfterCount(xPDOQuery $c) {
         $c->select($this->modx->getSelectColumns('modUser','modUser'));
-        $c->select($this->modx->getSelectColumns('modUserProfile','Profile','',array('fullname','email','blocked')));
+        $c->select($this->modx->getSelectColumns('modUserProfile','Profile','',array('fullname','email','phone','blocked')));
         return $c;
     }
 

@@ -2401,6 +2401,7 @@ class xPDO {
      */
     public function fromJSON($src, $asArray= true) {
         $decoded= '';
+        if(is_array($src))return $src;
         if ($src) {
             if (!function_exists('json_decode')) {
                 if (@ include_once (XPDO_CORE_PATH . 'json/JSON.php')) {
